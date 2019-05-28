@@ -1,63 +1,84 @@
-<div class="container">
-<div class="row">
+<div class="container pt-5">
+  <div class="row">
+    <div class="card col-md-6">
+      <div class="card-body mt-5">
+        <div class="row">
+          <div class="col-md-6">
+            <h5 class="card-title">Package</h5>
+            <div class="btn-group btn-group-toggle" ngbRadioGroup (change)="calculatePrice()"
+              [(ngModel)]="currentPackage">
+              <label ngbButtonLabel class="btn-outline-primary btn-sm">
+                <input ngbButton type="radio" value="Free">Free
+              </label>
+              <label ngbButtonLabel class="btn-outline-primary btn-sm">
+                <input ngbButton type="radio" value="Starter">Starter
+              </label>
+              <label ngbButtonLabel class="btn-outline-primary btn-sm">
+                <input ngbButton type="radio" value="Premiure">Premiure
+              </label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h5 class="card-title">Billing Cycle</h5>
+            <div class="btn-group btn-group-toggle" (change)="calculatePrice()" ngbRadioGroup
+              [(ngModel)]="currentDuration">
+              <label ngbButtonLabel class="btn-outline-primary btn-sm">
+                <input ngbButton type="radio" value="Monthly">Monthly
+              </label>
+              <label ngbButtonLabel class="btn-outline-primary btn-sm">
+                <input ngbButton type="radio" value="Annual">Annual
+              </label>
 
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <div class="row">
-      <div class="col-md-6">
-      <h5 class="card-title">Card title</h5>
-      <div class="btn-group btn-group-toggle" ngbRadioGroup [(ngModel)]="currentJustify">
-        <label ngbButtonLabel class="btn-outline-primary btn-sm">
-          <input ngbButton type="radio" value="start">Start
-        </label>
-        <label ngbButtonLabel class="btn-outline-primary btn-sm">
-          <input ngbButton type="radio" value="center">Center
-        </label>
-        <label ngbButtonLabel class="btn-outline-primary btn-sm">
-          <input ngbButton type="radio" value="end">End
-        </label>
-        <label ngbButtonLabel class="btn-outline-primary btn-sm">
-          <input ngbButton type="radio" value="fill">Fill
-        </label>
-        <label ngbButtonLabel class="btn-outline-primary btn-sm">
-          <input ngbButton type="radio" value="justified">Justified
-        </label>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-md-6 form-group">
+            <label for="numberOfUsers">Number of Users</label>
+            <input type="number" min="0" (change)="calculatePrice()" class="form-control" [(ngModel)]="numberOfUsers"
+              id="numberOfUsers" placeholder="Number of users">
+          </div>
+
+        </div>
+        <div class="row form-group">
+          <small id="emailHelp" class="form-text text-muted">@ {{this.packageAmount}}TL per month for each user</small>
+
+        </div>
       </div>
-      </div>
-      <div class="col-md-6">
-      <h5 class="card-title">Card title</h5>
-      <div class="btn-group btn-group-toggle" ngbRadioGroup [(ngModel)]="currentJustify">
-        <label ngbButtonLabel class="btn-outline-primary btn-sm">
-          <input ngbButton type="radio" value="start">Start
-        </label>
-        <label ngbButtonLabel class="btn-outline-primary btn-sm">
-          <input ngbButton type="radio" value="center">Center
-        </label>
-        <label ngbButtonLabel class="btn-outline-primary btn-sm">
-          <input ngbButton type="radio" value="end">End
-        </label>
-        <label ngbButtonLabel class="btn-outline-primary btn-sm">
-          <input ngbButton type="radio" value="fill">Fill
-        </label>
-        <label ngbButtonLabel class="btn-outline-primary btn-sm">
-          <input ngbButton type="radio" value="justified">Justified
-        </label>
-      </div>
-      </div>
+    </div>
+    <div class="card col-md-5 mx-auto">
+      <div class="card-body">
+        <h5 class="card-title">Billing Info</h5>
+        <div class="row">
+          <table class="table borderless">
+            <tbody>
+              <tr>
+                <td scope="row">Package</td>
+                <th>{{this.currentDuration}}</th>
+              </tr>
+              <tr>
+                <td scope="row">Plan</td>
+                <th>{{this.currentPackage}}</th>
+              </tr>
+              <tr>
+                <td scope="row">Number of Users</td>
+                <th>{{numberOfUsers}}</th>
+              </tr>
+              <tr>
+                <td scope="row">Discount</td>
+                <th>{{discount}}</th>
+              </tr>
+              <tr>
+                <th scope="row">Grand Total</th>
+                <th>{{totalPrice}}TL per month </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <button class="btn btn-outline-primary"> Procees To Next Step </button>
+        </div>
       </div>
     </div>
   </div>
-  
-  
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-      </p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div>
-</div>
 </div>
